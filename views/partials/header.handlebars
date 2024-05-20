@@ -7,7 +7,7 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index"
+          href="/index"
         >
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
@@ -19,15 +19,15 @@
         <hr class="sidebar-divider my-0" />
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-          <a class="nav-link" href="index">
+        <li class="nav-item {{#if (eq pageCode "index")}}active{{/if}}">
+          <a class="nav-link" href="/index">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
           >
         </li>
         <!-- Nav Item - E-books -->
-        <li class="nav-item">
-          <a class="nav-link" href="ebooks">
+        <li class="nav-item {{#if (eq pageCode "ebooks")}}active{{/if}}">
+          <a class="nav-link" href="/ebooks">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>E-books</span></a
           >

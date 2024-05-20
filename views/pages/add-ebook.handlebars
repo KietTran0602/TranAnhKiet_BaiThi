@@ -73,7 +73,11 @@
                 <div class="card-body">
                   <form
                     class="user"
-                    action=""
+                    action="{{#if (eq isEditing true)}}
+                    /ebooks/add-ebook/{{ebook._id}}
+                        {{else}}
+                    /ebooks/add-ebook
+                        {{/if}}"
                     method="post"
                     style="max-width: 500px; margin: auto"
                   >
@@ -85,6 +89,7 @@
                         id="name"
                         placeholder="E-book name"
                         name="name"
+                        value="{{ebook.name}}"
                       />
                     </div>
                     <div class="form-group">
@@ -96,7 +101,8 @@
                         class="form-control"
                         id="authorName"
                         placeholder="Author name"
-                        name="authorName"
+                        name="author"
+                        value="{{ebook.author}}"
                       />
                     </div>
                     <div class="form-group row">
@@ -108,7 +114,8 @@
                           type="number"
                           class="form-control"
                           id="numberOfPage"
-                          name="numberOfPage"
+                          name="numofpage"
+                          value="{{ebook.numofpage}}"
                         />
                       </div>
                       <div class="col-sm-6">
@@ -118,6 +125,7 @@
                           class="form-control"
                           id="price"
                           name="price"
+                          value="{{ebook.price}}"
                         />
                       </div>
                     </div>
@@ -130,7 +138,8 @@
                         class="form-control"
                         id="releaseDate"
                         placeholder="Release date"
-                        name="releaseDate"
+                        name="releasedate"
+                        value="{{ebook.releasedate}}"
                       />
                     </div>
                     <div class="form-group">
@@ -142,7 +151,7 @@
                         name="desc"
                         id="desc"
                         placeholder="E-book description"
-                      ></textarea>
+                      >{{ebook.desc}}</textarea>
                     </div>
                     <div class="form-group">
                       <label class="form-label"> E-book image </label> <br />
@@ -155,7 +164,8 @@
                         Choose image
                       </button>
                       <img
-                        src="#"
+                        id="ebook-img-review"
+                        src="{{ebook.image}}"
                         class="img-fluid"
                         alt="E-book image"
                         style="width: 200px; height: 200px"
@@ -167,7 +177,11 @@
                         type="submit"
                         class="btn btn-primary btn-lg ml-auto mr-auto mt-5"
                       >
+                        {{#if (eq isEditing true)}}
+                        Update E-book
+                        {{else}}
                         Add new E-book
+                        {{/if}}
                       </button>
                     </div>
                   </form>

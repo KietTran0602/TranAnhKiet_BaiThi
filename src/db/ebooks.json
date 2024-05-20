@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Oh, the Places You'll Go!",
+        "author": "Dr Seuss",
+        "desc": "lorem ispum",
+        "numofpage": 56,
+        "releasedate": "1990/01/22",
+        "price": 18,
+        "image": ""
+    },
+    {
+        "name": "Oh, the Places You'll Go!",
+        "author": "Dr Seuss",
+        "desc": "lorem ispum",
+        "numofpage": 56,
+        "releasedate": "1990/01/22",
+        "price": 18,
+        "image": ""
+    },
+    {
+        "name": "Oh, the Places You'll Go!",
+        "author": "Dr Seuss",
+        "desc": "lorem ispum",
+        "numofpage": 56,
+        "releasedate": "1990/01/22",
+        "price": 18,
+        "image": ""
+    }
+
+]

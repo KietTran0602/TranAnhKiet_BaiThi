@@ -13,3 +13,32 @@
 <!-- Page level custom scripts -->
 <script src="/js/demo/chart-area-demo.js"></script>
 <script src="/js/demo/chart-pie-demo.js"></script>
+<script>
+    $(function() {
+      $('#e-book-img').on("change", (event) => {
+        // Lay file da chon
+        const file = event.target.files[0];
+        // Tao object URL
+        const url = URL.createObjectURL(file)
+        // Gan url cho attribute "src" cua the img co id la "product-image-preview"
+        $('#ebook-img-review').attr("src", url);
+      })
+    })
+
+    $(function () {
+      $(".tm-category-delete-link").on("click", function (event) {
+        event.preventDefault();
+        const id = event.target.getAttribute("data-ebook-id");
+
+        //gọi tới url với method delete, yêu cầu xóa danh mục, sau khi xó relaod lại trang
+        $.ajax({
+          url: `/ebooks/${id}/delete`,
+          method: "DELETE"
+        }).done(function () {
+          window.location.reload();
+        })
+      })
+    })
+</script>
+
+

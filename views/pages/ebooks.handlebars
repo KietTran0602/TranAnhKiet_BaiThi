@@ -70,7 +70,7 @@
             <!-- Page Content -->
             <div class="container-fluid pl-0 pr-0">
               <!-- Button create new E-book -->
-              <a href="add-e-book.html" class="btn btn-primary btn-md mb-3">
+              <a href="/ebooks/add-ebook" class="btn btn-primary btn-md mb-3">
                 Add new E-book
               </a>
 
@@ -102,60 +102,30 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Oh, the Places You'll Go!</td>
+                        {{#each ebooksItems as |ebook| }}
+                          <tr>
+                          <td>{{ebook.name}}</td>
                           <td>
                             <img
-                              src="img/e-book/e-book-1.jpeg"
+                              src="{{ebook.image}}"
                               class="img-thumbnail"
                               style="width: 80px; height: 80px"
                               alt="..."
                             />
                           </td>
-                          <td>Dr Seuss</td>
+                          <td>{{ebook.author}}</td>
                           <td>
-                            Dr. Seuss's wonderfully wise Oh, the Places You'll
-                            Go! is the perfect gift to celebrate all of our
-                            special milestones--from graduations to birthdays
-                            and beyond! "[A] book that has proved to be popular
-                            for graduates of all ages since it was first
-                            published."--The New York Times
+                            {{ebook.desc}}
                           </td>
-                          <td>56</td>
-                          <td>1990/01/22</td>
-                          <td>$18</td>
+                          <td>{{ebook.numofpage}}</td>
+                          <td>{{ebook.releasedate}}</td>
+                          <td>${{ebook.price}}</td>
                           <td>
-                            <a href="#" class="btn btn-info"> Edit </a>
-                            <a href="#" class="btn btn-danger"> Delete </a>
+                            <a href="/ebooks/add-ebook/{{ebook._id}}" class="btn btn-info"> Edit </a>
+                            <a href="/ebooks/{{ebook._id}}/delete" class="btn btn-danger tm-category-delete-link" data-ebook-id = "{{ebook._id}}"> Delete </a>
                           </td>
                         </tr>
-                        <tr>
-                          <td>Oh, the Places You'll Go!</td>
-                          <td>
-                            <img
-                              src="img/e-book/e-book-1.jpeg"
-                              class="img-thumbnail"
-                              style="width: 80px; height: 80px"
-                              alt="..."
-                            />
-                          </td>
-                          <td>Dr Seuss</td>
-                          <td>
-                            Dr. Seuss's wonderfully wise Oh, the Places You'll
-                            Go! is the perfect gift to celebrate all of our
-                            special milestones--from graduations to birthdays
-                            and beyond! "[A] book that has proved to be popular
-                            for graduates of all ages since it was first
-                            published."--The New York Times
-                          </td>
-                          <td>56</td>
-                          <td>1990/01/22</td>
-                          <td>$18</td>
-                          <td>
-                            <a href="#" class="btn btn-info"> Edit </a>
-                            <a href="#" class="btn btn-danger"> Delete </a>
-                          </td>
-                        </tr>
+                        {{/each}}                 
                       </tbody>
                     </table>
                   </div>
