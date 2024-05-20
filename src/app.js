@@ -76,6 +76,7 @@ app.get("/ebooks/add-ebook", async (req, res)=>{
 app.post("/ebooks/add-ebook",multerUploader.single("image"), async (req, res)=>{
     const data = req.body;
     const file = req.file;
+    console.log(multerUploader.single("image"));
     await EbooksModel.create({
         name: data.name,
         author: data.author,
@@ -83,7 +84,7 @@ app.post("/ebooks/add-ebook",multerUploader.single("image"), async (req, res)=>{
         numofpage: data.numofpage,
         releasedate: data.releasedate,
         price: data.price,
-        image: data.image
+        image: `assets/img/${file.filename}`
     });
     res.redirect("/ebooks");
 });
@@ -99,7 +100,7 @@ app.get("/ebooks/add-ebook/:id", async (req,res)=>{
     }); 
 });
 
-app.post("/ebooks/add-ebook/:id", async (req,res)=>{
+app.post("/ebooks/add-ebook/:id",multerUploader.single("image"), async (req,res)=>{
     const id = req.params.id;
     const data = req.body;
     const file = req.file;
@@ -115,7 +116,7 @@ app.post("/ebooks/add-ebook/:id", async (req,res)=>{
                 numofpage: data.numofpage,
                 releasedate: data.releasedate,
                 price: data.price,
-                image: data.image
+                image: `assets/img/${file.filename}`
             }
         }
     );
